@@ -8,7 +8,6 @@ Pokedex.bootState = function(game) {
 Pokedex.bootState.prototype = {
 
     preload: function() {
-        
     },
 
     create: function() {

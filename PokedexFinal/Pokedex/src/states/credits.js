@@ -1,48 +1,50 @@
-Pokedex.creditsState = function(game) {
+Pokedex.creditsState = function (game) {
 }
 
 Pokedex.creditsState.prototype = {
 
-    preload: function(){
+    preload: function () {
         game.load.json('datosPokemon', 'assets/csvjson.json');
     },
 
 
-    create: function(num) {
-        var datosPokemon = game.cache.getJSON('datosPokemon');
+    create: function (num) {
+        var datosPokemon = game.cache.getJSON('datosPokemon'); //carga del fichero json
         fondo = game.add.tileSprite(0, 0, 1280, 720, 'stats');
         var idPokemon = pokemonID;
-        
-        var pokemonActual = game.add.sprite(200, 200, ''+idPokemon+'');
+
+        var pokemonActual = game.add.sprite(200, 200, '' + idPokemon + '');
         pokemonActual.scale.setTo(1.3, 1.3);
 
-        var volver_boton = game.add.button(115, 500, '1', this.menuOnClick, this, 1, 0, 0);
+        var volver_boton = game.add.button(15, 635, 'botonAtras', this.menuOnClick, this, 1, 0, 0);
+        volver_boton.scale.setTo(0.09, 0.09);
         var fullscreen_boton = game.add.button(1225, 670, 'fullscreen', this.fullscreen, this, 1, 0, 0);
-        var text = game.add.text(200, 200, datosPokemon[idPokemon - 1].name, {font: '50px Arial', fill: '#ffffff'})
+        var text = game.add.text(640, 75, datosPokemon[idPokemon - 1].name, { font: '100px Arial', fill: '#000000' })
+        text.anchor.setTo(0.5); //alineación del texto del nombre para que aparezca centrado siempre
+
         fullscreen_boton.scale.setTo(0.5, 0.5);
         game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
     },
-    
-    update: function() {
+
+    update: function () {
+        //Movimiento del fondo
         fondo.tilePosition.x += 0.25;
         fondo.tilePosition.y += -0.25;
     },
 
-    menuOnClick: function() {
+    menuOnClick: function () {
 
         game.state.start('menuState')
- 
+
     },
 
-    fullscreen: function() {
-    if (game.scale.isFullScreen)
-    {
-        game.scale.stopFullScreen();
-    }
-    else
-    {
-        game.scale.startFullScreen(false);
-    }
+    fullscreen: function () {
+        if (game.scale.isFullScreen) {
+            game.scale.stopFullScreen();
+        }
+        else {
+            game.scale.startFullScreen(false);
+        }
 
-},
+    },
 }
