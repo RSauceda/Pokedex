@@ -13,13 +13,16 @@ Pokedex.creditsState.prototype = {
         fondo = game.add.tileSprite(0, 0, 1280, 720, 'stats');
         var idPokemon = pokemonID;
 
-        var pokemonActual = game.add.sprite(200, 200, '' + idPokemon + '');
+        var pokemonActual = game.add.sprite(125, 250, '' + idPokemon + '');
         pokemonActual.scale.setTo(1.3, 1.3);
+        var nombrePokemon = game.add.sprite(640, 90, 'nombrePokemon');
+        nombrePokemon.scale.setTo(0.85, 0.85);
+        nombrePokemon.anchor.setTo(0.5);
 
         var volver_boton = game.add.button(15, 635, 'botonAtras', this.menuOnClick, this, 1, 0, 0);
         volver_boton.scale.setTo(0.09, 0.09);
         var fullscreen_boton = game.add.button(1225, 670, 'fullscreen', this.fullscreen, this, 1, 0, 0);
-        var text = game.add.text(640, 75, datosPokemon[idPokemon - 1].name, { font: '100px Arial', fill: '#000000' })
+        var text = game.add.text(640, 90, datosPokemon[idPokemon - 1].name, { font: '100px Verdana', fill: '#ffffff' })
         text.anchor.setTo(0.5); //alineación del texto del nombre para que aparezca centrado siempre
 
         fullscreen_boton.scale.setTo(0.5, 0.5);

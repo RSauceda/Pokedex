@@ -12,9 +12,7 @@ Pokedex.menuState.prototype = {
     },
 
     create: function () {
-
         game.world.setBounds(0, 0, 720, 8300);
-        //var fondoScroll= game.add.sprite(0, 0, 'fondoScroll');
         var fondo = game.add.sprite(0, 0, 'fondo');
         var x = 50; //Distancia horizontal entre los sprites de los pokemons
         var y = 185; //Distancia vertical entre las filas de sprites de pokemons
@@ -42,6 +40,15 @@ Pokedex.menuState.prototype = {
         fullscreen_boton.fixedToCamera = true;
         game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
 
+        //Botones de número de páginas
+        var numPag1 = game.add.button(1200, 530, 'numPag1', this.mismaPantalla, this, 1, 0, 0);
+        numPag1.scale.setTo(0.16, 0.16);
+        numPag1.fixedToCamera = true;
+
+        var numPag2 = game.add.button(1205, 590, 'numPag2', this.cambioPantalla, this, 1, 0, 0);
+        numPag2.scale.setTo(0.145, 0.145);
+        numPag2.fixedToCamera = true;
+
     },
 
     update: function () {
@@ -68,6 +75,14 @@ Pokedex.menuState.prototype = {
             game.scale.startFullScreen(false);
         }
 
+    },
+
+    mismaPantalla: function () {
+        game.state.start('menuState');
+    },
+
+    cambioPantalla: function () {
+        game.state.start('endingState');
     },
 
 }
