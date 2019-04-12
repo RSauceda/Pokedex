@@ -1,31 +1,33 @@
-Pokedex.endingState = function(game) {
+Pokedex.endingState = function (game) {
 
 }
 var pokemonID = -1;
 var vel = 25;
 Pokedex.endingState.prototype = {
 
-    preload: function() {
-        
+    preload: function () {
+
     },
 
-    create: function() {
-        game.world.setBounds(0, 0, 720, 3175);
+    create: function () {
+        game.world.setBounds(0, 0, 720, 3250);
         var fondo = game.add.sprite(0, 0, 'fondo');
         var x = 50; //Distancia horizontal entre los sprites de los pokemons
         var y = 185; //Distancia vertical entre las filas de sprites de pokemons
         var numPokemon = 529;
         var numColumnas = 8;
-        var numFilas = 24;
+        var numFilas = 25;
 
         //Incluir sprites de los pokemons y asociarles botones a cada uno
         for (i = 0; i < numFilas; i++) {
             for (j = 1; j <= numColumnas; j++) {
-                boton = game.add.button(x, y, '' + numPokemon + '', (but) => this.estadisticas(but.id), this, 1, 0, 0);
-                boton.id = numPokemon;
-                boton.scale.setTo(0.45, 0.45);
-                x += 150;
-                numPokemon++;
+                if (numPokemon <= 721) {
+                    boton = game.add.button(x, y, '' + numPokemon + '', (but) => this.estadisticas(but.id), this, 1, 0, 0);
+                    boton.id = numPokemon;
+                    boton.scale.setTo(0.45, 0.45);
+                    x += 150;
+                    numPokemon++;
+                }
             }
             x = 50;
             y += 122;
@@ -47,7 +49,7 @@ Pokedex.endingState.prototype = {
         numPag2.fixedToCamera = true;
     },
 
-    update: function() {
+    update: function () {
         if (game.input.keyboard.isDown(Phaser.Keyboard.S)) {
             game.camera.y += vel;
         }
@@ -74,11 +76,11 @@ Pokedex.endingState.prototype = {
     },
 
     mismaPantalla: function () {
-        game.state.start('menuState');
+        game.state.start('menuState', true, false);
     },
 
     cambioPantalla: function () {
-        game.state.start('endingState');
+        game.state.start('endingState', true, false);
     },
 
 }

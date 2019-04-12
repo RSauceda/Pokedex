@@ -78,11 +78,11 @@ Pokedex.menuState.prototype = {
     },
 
     mismaPantalla: function () {
-        game.state.start('menuState');
+        game.state.start('menuState', true, false);
     },
 
     cambioPantalla: function () {
-        game.state.start('endingState');
+        game.state.start('endingState', true, false);
     },
 
 }
