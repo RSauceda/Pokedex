@@ -36,6 +36,9 @@ Pokedex.creditsState.prototype = {
         var banderaJapon = game.add.sprite(540, 190, 'japaneseFlag');
         banderaJapon.scale.setTo(0.04, 0.04);
         banderaJapon.anchor.setTo(0.5);
+        var fondoStats = game.add.sprite(660, 385, 'fondoStats');
+        fondoStats.scale.setTo(0.85, 0.95);
+        fondoStats.anchor.setTo(0.5);
 
         //Tipos del pokemon
         var tipo1 = game.add.sprite(175, 625, '' + datosPokemon[idPokemon - 1].type1 + '');
@@ -83,8 +86,8 @@ Pokedex.creditsState.prototype = {
             datosPokemon[idPokemon - 1].grass, datosPokemon[idPokemon - 1].ground, datosPokemon[idPokemon - 1].ice,
             datosPokemon[idPokemon - 1].normal, datosPokemon[idPokemon - 1].poison, datosPokemon[idPokemon - 1].psychic,
             datosPokemon[idPokemon - 1].rock, datosPokemon[idPokemon - 1].steel, datosPokemon[idPokemon - 1].water];
-        var debilTexto = game.add.text(500, 300, "Fuerte contra:", { font: '40px Arial Black', fill: '#170b2a'});
-        var fuerteTexto = game.add.text(500, 500, "Débil contra:", { font: '40px Arial Black', fill: '#170b2a'});
+        game.add.text(500, 305, "Fuerte contra:", { font: '40px Arial Black', fill: '#29c71b'});
+        game.add.text(500, 510, "Débil contra:", { font: '40px Arial Black', fill: '#2d0c82'});
         var desplazamientoX = 70; //espacio de separación entre cada sprite de tipo
         var posInicialX = 525;
         var posX1 = posInicialX;
@@ -92,7 +95,7 @@ Pokedex.creditsState.prototype = {
         var posY = 350;
         var contador = 0; //Si llega a 10 empieza a poner sprites en otra fila para que no se salgan de la pantalla
         for (i = 0; i < 18; i++) { //18 = numero de tipos en total
-            if(contador <= 10){
+            if(contador < 9){
                 if (tipos[i] <= 1) {
                     var debilContra = game.add.sprite(posX1, posY, '' + arrayTipos[i] + '');
                     debilContra.scale.setTo(0.1);
