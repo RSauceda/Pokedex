@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlFile>
+    <screenSize>
+        <screenSizeX>1280</screenSizeX>
+        <screenSizeY>720</screenSizeY>
+    </screenSize>
+    <serialNumber>5FD8FU7B</serialNumber>
+    <developers>
+        <name>Rafael Sauceda Velasco</name>
+        <name>Jaime Bárzano Enrique</name>
+    </developers>
+</xmlFile>

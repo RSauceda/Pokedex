@@ -8,7 +8,6 @@ Pokedex.menuState.prototype = {
 
 
     preload: function () {
-
     },
 
     create: function () {
@@ -19,6 +18,14 @@ Pokedex.menuState.prototype = {
         var numPokemon = 1;
         var numColumnas = 8;
         var numFilas = 66; //Se muestran 528 pokemons
+
+        //Lectura de datos del fichero xml
+        var xml = game.cache.getXML('xml');
+        var numSerie = xml.getElementsByTagName('serialNumber')[0].innerHTML;
+        var nombre1 = xml.getElementsByTagName('name')[0].innerHTML;
+        var nombre2 = xml.getElementsByTagName('name')[1].innerHTML;
+        game.add.text(825, 30, 'Creado por: ' + nombre1 + ' y ' + nombre2, { font: '15px Arial', fill: '#000000' })
+        game.add.text(1050, 60, 'Numero de serie: ' + numSerie, { font: '15px Arial', fill: '#000000' })
 
         //Incluir sprites de los pokemons y asociarles botones a cada uno
         for (i = 0; i < numFilas; i++) {
